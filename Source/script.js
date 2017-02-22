@@ -7,13 +7,15 @@ window.onload = function() {
 
 		fileInput.addEventListener('change', function(e) {
 			var file = fileInput.files[0];
-			var textType = /text.*/;
+			//var textType = /text.*/;
+			var textType = /.*/
 
 			if (file.type.match(textType)) {
 				var reader = new FileReader();
 
 				reader.onload = function(e) {
-					fileDisplayArea.innerText = reader.result;
+					//fileDisplayArea.innerText = reader.result;
+					fileDisplayArea.innerText=reader.result.split('\n')[0];
 				}
 
 				reader.readAsText(file);	
