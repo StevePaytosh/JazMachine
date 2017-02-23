@@ -64,3 +64,40 @@ function run_file(doc,start, end)
 	
 	
 }
+
+function call(opp,param)
+{
+	switch(opp)
+	{
+		case "lvalue": lvalue(param);break;
+		case "rvalue": rvalue(param);break;
+		case ":=": set(); break;
+		case "push": push(param); break;
+		case "pop": pop(); break;
+		case "call":
+		case "return":
+		case "end":	
+		case "begin": setScope(opp); break;
+		case "+": add(pop(),pop()); break;
+		case "-": subtract(pop(),pop()); break;
+		case "*": mult(pop(),pop()); break;
+		case "/": divide(pop(),pop()); break;
+		case "div": div-mod(pop(),pop()); break;
+		case "&": logic_AND(pop(),pop());
+		case "!": negate(pop());
+		case "|": logic_OR(pop(),pop());
+		default:
+		{
+			if(opp.includes(":="))
+				set();
+			else if(opp.includes("push"))
+				push(param);
+			else if(opp.includes("pop"))
+				pop();
+			else if(opp.includes("call") || opp.includes("return") || opp.includes("end")  || opp.includes("begin"))
+				setScope(param);
+		}
+	
+	}
+	
+}
