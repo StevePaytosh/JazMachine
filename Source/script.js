@@ -16,7 +16,8 @@ window.onload = function() {
 				reader.onload = function(e) {
 					//fileDisplayArea.innerText = reader.result;
 					//fileDisplayArea.innerText=reader.result.split('\n')[0];
-					run_file(reader.result.split('\n'));
+					var doc=reader.result.split('\n');
+					run_file(doc,0,doc.length);
 				}
 
 				reader.readAsText(file);	
@@ -26,11 +27,11 @@ window.onload = function() {
 		});
 };
 
-function run_file(doc)
+function run_file(doc,start, end)
 {
 	//this function gets the array representing the file and iterated through the lines
 	init();
-	for(var i=0; i<doc.length; i++)
+	for(var i=start; i<end; i++)
 	{
 		doc[i]=doc[i].concat(" ");
 		var args=doc[i].split(" "); //split up the line on spaces
@@ -38,6 +39,17 @@ function run_file(doc)
 		var params=args.splice(1,args.length).join(" ");
 		var opperation=args.splice(0,1).join(" "); //the first element in the args array is the function to call
 		
+		if(opperation.includes("goto"))
+		{
+			//should not return
+			var s=doc.indexof("label "+params);
+			run_file(doc,s+1,end);
+			return 0;
+		}
+		else if(opperation.includes("return") )
+		{
+			
+		}
 		call(opperation,params);
 	}
 	
