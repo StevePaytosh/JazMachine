@@ -24,7 +24,7 @@ function divide(op1,op2)
 	return Math.floor(quotient);
 }
 
-function div-mod(op1,op2)
+function div_mod(op1,op2)
 {
 	var remainder = op1 % op2;
 	return remainder;
