@@ -8,10 +8,22 @@ var data_scope=0;
 var vars_scope=0;
 
 
-function init()
+function init(docs)
 {
 	d.push([]);
 	v.push([]);
+	
+	
+	for(var i=0; i<docs.length; i++)
+	{
+		var args=docs[i].split(" "); //split up the line on spaces
+		args = args.map(item => { return item.trim() })
+		if(args[0]=="label")
+		{
+			var params=args.splice(1,args.length).join(" ");
+			labels[params]=i+1;
+		}
+	}
 }
 function lvalue(newVar)
 {
@@ -94,4 +106,9 @@ function setScope(val)
 	
 	if(vars_scope<0)
 		data_scope=0;
+}
+
+function getLabel(label)
+{
+	return labels[label];
 }

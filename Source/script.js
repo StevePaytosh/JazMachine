@@ -30,7 +30,7 @@ window.onload = function() {
 function run_file(doc,start, end)
 {
 	//this function gets the array representing the file and iterated through the lines
-	init();
+	init(doc);
 	for(var i=start; i<end; i++)
 	{
 		var args=doc[i].split(" "); //split up the line on spaces
@@ -42,7 +42,7 @@ function run_file(doc,start, end)
 		if(opperation.includes("goto"))
 		{
 			//should not return
-			var s=doc.indexof("label "+params);
+			var s=getLabel(params);
 			run_file(doc,s+1,end);
 			return 0;
 		}
