@@ -34,7 +34,25 @@ function lvalue(newVar)
 
 function  rvalue(val)
 {
-	d[data_scope].push(val);
+	if(!isNaN(parseFloat(val)) && isFinite(val))
+		d[data_scope].push(val);
+	else
+	{
+		//place variable value onto the data stack
+		if(data_scope<vars_scope)
+		{
+			//transfer into function phase, can read vars from outer scope
+			d[data_scope].push(v[vars_scope-1][val]);
+		}
+		else if(data_scope>vars_scope)
+		{
+			//transfer back to outer scope, can read vars from inner scope
+			d[data_scope].push(v[vars_scope+1][val]);
+		}
+		else
+			d[data_scope].push(v[vars_scope][val]);
+	}
+		
 };
 
 function  set()
@@ -55,7 +73,7 @@ function  setLabel(name,code)
 function  pop()
 {
 	var r=d[data_scope].pop();
-	console.log("poped: " + r + " from the stack\n");
+	console.log("popped: " + r + " from the stack\n");
 	return r;
 }
 
@@ -92,13 +110,13 @@ function setScope(val)
 	if(val=="return")
 	{
 		vars_scope--;
-		v.pop();
 	}
 	
 	if(val=="end")
 	{
 		data_scope--;
-		d.pop();
+		d.pop(); //don't pop inner arrays unit the function is completely done
+		v.pop();
 	}
 	
 	if(data_scope<0) //prevent the scopes from going negative

@@ -47,10 +47,7 @@ function run_file(doc,start, end)
 			run_file(doc,s,end);
 			return 0;
 		}
-		else if(opperation.includes("return") )
-		{
-			return;
-		}
+		
 		call(opperation,params);
 		
 		if(opperation.includes("call"))
@@ -58,6 +55,10 @@ function run_file(doc,start, end)
 			//should return after call
 			var s=getLabel(params);
 			run_file(doc,s,end);
+		}
+		else if(opperation.includes("return") )
+		{
+			return;
 		}
 	}
 	
