@@ -39,3 +39,21 @@ function stackTests()
 	pop(); //pop 1
 	
 }
+
+function call(opp,param)
+{
+	switch(opp)
+	{
+		case "lvalue": lvalue(param);break;
+		case "rvalue": rvalue(param);break;
+		case ":=": set(); break;
+		case "push": push(); break;
+		case "pop": pop(); break;
+		case "call":
+		case "return":
+		case "end":	
+		case "begin": setScope(opp); break;
+	
+	}
+	
+}
