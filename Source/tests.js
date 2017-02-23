@@ -46,8 +46,11 @@ function call(opp,param)
 	{
 		case "lvalue": lvalue(param);break;
 		case "rvalue": rvalue(param);break;
+		case "\n:=\n":		
+		case "\n:=":
+		case ":=\n":
 		case ":=": set(); break;
-		case "push": push(); break;
+		case "push": push(param); break;
 		case "pop": pop(); break;
 		case "call":
 		case "return":
