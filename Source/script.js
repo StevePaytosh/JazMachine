@@ -17,6 +17,7 @@ window.onload = function() {
 					//fileDisplayArea.innerText = reader.result;
 					//fileDisplayArea.innerText=reader.result.split('\n')[0];
 					var doc=reader.result.split('\n');
+					init(doc);
 					run_file(doc,0,doc.length);
 				}
 
@@ -30,7 +31,6 @@ window.onload = function() {
 function run_file(doc,start, end)
 {
 	//this function gets the array representing the file and iterated through the lines
-	init(doc);
 	for(var i=start; i<end; i++)
 	{
 		var args=doc[i].split(" "); //split up the line on spaces
@@ -43,7 +43,7 @@ function run_file(doc,start, end)
 		{
 			//should not return
 			var s=getLabel(params);
-			run_file(doc,s+1,end);
+			run_file(doc,s,end);
 			return 0;
 		}
 		else if(opperation.includes("return") )
