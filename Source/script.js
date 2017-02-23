@@ -37,7 +37,7 @@ function run_file(doc,start, end)
 		var args=doc[i].split(" "); //split up the line on spaces
 		//var params=args.join("",2,args.length-1); //conjoin the remainder of the array to create the parameter
 		var params=args.splice(1,args.length).join(" ");
-		var opperation=args.splice(0,1).join(" "); //the first element in the args array is the function to call
+		var opperation=args[0]; //the first element in the args array is the function to call
 		
 		if(opperation.includes("goto"))
 		{
