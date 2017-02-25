@@ -53,9 +53,11 @@ function call(opp,param)
 		case "*": mult(pop(),pop()); break;
 		case "/": divide(pop(),pop()); break;
 		case "div": div-mod(pop(),pop()); break;
-		case "&": logic_AND(pop(),pop());
-		case "!": negate(pop());
-		case "|": logic_OR(pop(),pop());
+		case "&": logic_AND(pop(),pop()); break;
+		case "!": negate(pop()); break;
+		case "|": logic_OR(pop(),pop()); break;
+		case "print": print(); break;
+		case "show": show(param); break;
 		default:
 		{
 			if(opp.includes(":="))

@@ -11,8 +11,9 @@ window.onload = function() {
 				var reader = new FileReader();
 
 				reader.onload = function(e) {
-					//fileDisplayArea.innerText = reader.result;
-					fileDisplayArea.innerText=reader.result.split('\n')[0];
+					var doc=reader.result.split('\n');
+ -					init(doc);
+ -					run_file(doc,0,doc.length);
 				}
 
 				reader.readAsText(file);	
@@ -25,16 +26,15 @@ window.onload = function() {
 function print()
 {
 	//gets the top of the stack and prints italics
-	var top=top();
-	var element=$("#out");
-	element.innerHTML=element.innerHTML+cont;
+	var top=topOfStack();
+	var r=$("#out");
+	r.html(r.html()+top);
 }
 
 function show(cont)
 {
 	//gets the top of the stack and prints italics
-	var top=top();
-	var element=$("#out");
-	element.innerHTML=element.innerHTML+cont+"\n";
+	var r=$("#out");
+	r.html(r.html()+cont+"<p>");
 	
 }
