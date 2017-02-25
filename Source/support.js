@@ -3,7 +3,7 @@
 function add(op1,op2)
 {
 	//var sum = 
-	return op1 + op2;
+	return +op1 + +op2;
 	//return sum;
 };
 

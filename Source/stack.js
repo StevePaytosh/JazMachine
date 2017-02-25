@@ -29,7 +29,7 @@ function init(docs)
 function lvalue(newVar)
 {
 	current_var=newVar;
-	v[vars_scope][newVar]="mu";
+	v[vars_scope][newVar]=0;
 	
 };
 

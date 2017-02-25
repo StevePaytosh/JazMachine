@@ -28,7 +28,7 @@ function print()
 	//gets the top of the stack and prints italics
 	var top=topOfStack();
 	var r=$("#out");
-	r.html(r.html()+top);
+	r.html(r.html()+top+"<p>");
 }
 
 function show(cont)
