@@ -11,8 +11,9 @@ window.onload = function() {
 				var reader = new FileReader();
 
 				reader.onload = function(e) {
-					//fileDisplayArea.innerText = reader.result;
-					fileDisplayArea.innerText=reader.result.split('\n')[0];
+					var doc=reader.result.split('\n');
+ 					init(doc);
+ 					run_file(doc,0,doc.length);
 				}
 
 				reader.readAsText(file);	
