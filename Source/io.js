@@ -26,16 +26,15 @@ window.onload = function() {
 function print()
 {
 	//gets the top of the stack and prints italics
-	var top=top();
-	var element=$("#out");
-	element.innerHTML=element.innerHTML+cont;
+	var top=topOfStack();
+	var r=$("#out");
+	r.html(r.html()+top);
 }
 
 function show(cont)
 {
 	//gets the top of the stack and prints italics
-	var top=top();
-	var element=$("#out");
-	element.innerHTML=element.innerHTML+cont+"\n";
+	var r=$("#out");
+	r.html(r.html()+cont+"<p>");
 	
 }

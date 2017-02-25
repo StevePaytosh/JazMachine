@@ -56,6 +56,8 @@ function call(opp,param)
 		case "&": logic_AND(pop(),pop());
 		case "!": negate(pop());
 		case "|": logic_OR(pop(),pop());
+		case "print": print(); break;
+		case "show": show(param); break;
 		default:
 		{
 			if(opp.includes(":="))
