@@ -48,14 +48,14 @@ function call(opp,param)
 		case "return":
 		case "end":	
 		case "begin": setScope(opp); break;
-		case "+": add(pop(),pop()); break;
-		case "-": subtract(pop(),pop()); break;
-		case "*": mult(pop(),pop()); break;
-		case "/": divide(pop(),pop()); break;
-		case "div": div-mod(pop(),pop()); break;
-		case "&": logic_AND(pop(),pop()); break;
-		case "!": negate(pop()); break;
-		case "|": logic_OR(pop(),pop()); break;
+		case "+": push(add(pop(),pop())); break;
+		case "-": push(subtract(pop(),pop())); break;
+		case "*": push(mult(pop(),pop())); break;
+		case "/": push(divide(pop(),pop())); break;
+		case "div": push(div_mod(pop(),pop())); break;
+		case "&": push(logic_AND(pop(),pop())); break;
+		case "!": push(negate(pop())); break;
+		case "|": push(logic_OR(pop(),pop())); break;
 		case "print": print(); break;
 		case "show": show(param); break;
 		default:

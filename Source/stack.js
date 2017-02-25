@@ -16,6 +16,7 @@ function init(docs)
 	
 	for(var i=0; i<docs.length; i++)
 	{
+		docs[i]=docs[i].trim();
 		var args=docs[i].split(" "); //split up the line on spaces
 		args = args.map(item => { return item.trim() })
 		if(args[0]=="label")
@@ -79,7 +80,7 @@ function  pop()
 
 function push(val)
 {
-	d[data_scope].push(val);
+	return d[data_scope].push(val);
 }
 
 function  topOfStack()
