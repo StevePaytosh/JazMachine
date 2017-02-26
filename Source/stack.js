@@ -1,6 +1,7 @@
 var vars=[]; //stack for variables, index of type string: vars["f"]=0 , vars["ff"]=15
 var d=[];
 var v=[];
+var t=[]; //transfer stack
 var current_var; //pointer(string index) to the current var
 var labels=[]; //holds strings that act as sections of code identified by labels
 var routines=[]; //holds strings that acts sections of code that act as routines (consider using an object)
@@ -51,7 +52,16 @@ function  rvalue(val)
 			d[data_scope].push(v[vars_scope+1][val]);
 		}
 		else
+		{
+			if(v[vars_scope][val]==null)
+			{
+				//if the variable referenced does not exist, initialize it to zero
+				v[vars_scope][val]=0;
+				d[data_scope].push(0);
+			}
 			d[data_scope].push(v[vars_scope][val]);
+		}
+			
 	}
 		
 };
@@ -98,7 +108,18 @@ function setScope(val)
 	val=val.toLowerCase()
 	if(val=="begin")
 	{
+		var stack_copy=v[vars_scope];
 		vars_scope++;
+
+	/*	for (var property in stack_copy) 
+		{
+			if (stack_copy.hasOwnProperty(property)) 
+			{
+				stack_copy[property]=0;
+			}
+		}
+		*/
+		//v.push(stack_copy);
 		v.push([]);
 	}
 	
