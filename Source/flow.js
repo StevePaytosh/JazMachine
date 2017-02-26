@@ -17,6 +17,10 @@ function run_file(doc,start, end)
 			run_file(doc,s,end);
 			return 0;
 		}
+		else if(opperation.includes("halt"))
+		{
+			return 0;
+		}
 		
 		call(opperation,params);
 		
