@@ -46,6 +46,7 @@ function call(opp,param)
 		case "lvalue": lvalue(param);break;
 		case "rvalue": rvalue(param);break;
 		case ":=": set(); break;
+		case "copy": 
 		case "push": push(param); break;
 		case "pop": pop(); break;
 		case "call":
@@ -60,6 +61,13 @@ function call(opp,param)
 		case "&": push(logic_AND(pop(),pop())); break;
 		case "!": push(negate(pop())); break;
 		case "|": push(logic_OR(pop(),pop())); break;
+		case "<":
+		case ">":
+		case "<=":
+		case ">=":
+		case "<":
+		case ">":
+		case "=":
 		case "print": print(); break;
 		case "show": show(param); break;
 		default:
