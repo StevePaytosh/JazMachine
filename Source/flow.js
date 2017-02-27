@@ -17,17 +17,17 @@ function run_file(doc,start, end)
 			run_file(doc,s,end);
 			return 0;
 		}
-		else if(operation.includes("gofalse") || operation.includes("gotrue"))
+		else if(opperation.includes("gofalse") || opperation.includes("gotrue"))
 		{
 			//conditional jumps
 			var test=pop();
-			if(operation.includes("gofalse") && test==0)
+			if(opperation.includes("gofalse") && test==0)
 			{
 				var s=getLabel(params);
 				run_file(doc,s,end);
 				return 0;
 			}
-			else if(operation.includes("gotrue") && test==1)
+			else if(opperation.includes("gotrue") && test==1)
 			{
 				var s=getLabel(params);
 				run_file(doc,s,end);
@@ -82,8 +82,8 @@ function call(opp,param)
 		case ">": push(greater_than(pop(),pop())); break;
 		case "<=":push(less_or_equal(pop(),pop())); break;
 		case ">=":push(greater_or_equal(pop(),pop())); break;
-		case "<>":
-		case "=":
+		case "<>": push(check_equality(pop(),pop()) ); break;
+		case "=": push(check_diff(pop(),pop()) ); break;
 		case "print": print(); break;
 		case "show": show(param); break;
 		default:
