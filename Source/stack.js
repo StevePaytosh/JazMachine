@@ -1,7 +1,6 @@
 var vars=[]; //stack for variables, index of type string: vars["f"]=0 , vars["ff"]=15
 var d=[];
 var v=[];
-var t=[]; //transfer stack
 var current_var; //pointer(string index) to the current var
 var labels=[]; //holds strings that act as sections of code identified by labels
 var routines=[]; //holds strings that acts sections of code that act as routines (consider using an object)
@@ -30,7 +29,12 @@ function init(docs)
 function lvalue(newVar)
 {
 	current_var=newVar;
-	v[vars_scope][newVar]=0;
+	
+	if(v[vars_scope][newVar]==null)
+		v[vars_scope][newVar]=0;
+	
+
+		
 	
 };
 
