@@ -1,3 +1,5 @@
+var data_string="";
+
 window.onload = function() {
 		var fileInput = document.getElementById('fileInput');
 		var fileDisplayArea = document.getElementById('out');
@@ -29,6 +31,7 @@ function print()
 	var top=topOfStack();
 	var r=$("#out");
 	r.html(r.html()+top+"<p>");
+	data_string+=top+"\n";
 }
 
 function show(cont)
@@ -36,6 +39,7 @@ function show(cont)
 	//gets the top of the stack and prints italics
 	var r=$("#out");
 	r.html(r.html()+cont+"<p>");
+	data_string+=cont+"\n";
 	
 }
 
@@ -60,36 +64,10 @@ function createDownloadLink()
     link.style.display = 'block';
 }
 
-function sendDownload()
+function clearOutput()
 {
-	
-  
-	
+	$("#out").html("");
+	data_string="";
 }
 
 
-/*
-(function () {
-
-
-    // If we are replacing a previously generated file we need to
-    // manually revoke the object URL to avoid memory leaks.
-    if (textFile !== null) {
-      window.URL.revokeObjectURL(textFile);
-    }
-
-  
-  };
-
-
-  var create = $("#create"),
-   // textbox = document.getElementById('out').innerHTML;
-   textbox=$("#out").innerHTML;
-
-  create.addEventListener('click', function () {
-    var link = document.getElementById('downloadlink');
-    link.href = makeTextFile(textbox);
-    link.style.display = 'block';
-  }, false);
-})();
-*/
