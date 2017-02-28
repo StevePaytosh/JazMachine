@@ -38,3 +38,58 @@ function show(cont)
 	r.html(r.html()+cont+"<p>");
 	
 }
+
+function makeTextFile(text)
+{
+	var textFile=null;
+    var data = new Blob([text], {type: 'text/plain'});
+	textFile = window.URL.createObjectURL(data);
+    return textFile;
+
+};
+
+function createDownloadLink()
+{
+	
+	
+	 var create = $("#create");
+	var textbox=$("#out").html();
+	
+	var link = document.getElementById('downloadlink');
+    link.href = makeTextFile(textbox);
+    link.style.display = 'block';
+}
+
+function sendDownload()
+{
+	
+  
+	
+}
+
+
+/*
+(function () {
+
+
+    // If we are replacing a previously generated file we need to
+    // manually revoke the object URL to avoid memory leaks.
+    if (textFile !== null) {
+      window.URL.revokeObjectURL(textFile);
+    }
+
+  
+  };
+
+
+  var create = $("#create"),
+   // textbox = document.getElementById('out').innerHTML;
+   textbox=$("#out").innerHTML;
+
+  create.addEventListener('click', function () {
+    var link = document.getElementById('downloadlink');
+    link.href = makeTextFile(textbox);
+    link.style.display = 'block';
+  }, false);
+})();
+*/
