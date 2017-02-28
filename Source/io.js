@@ -1,4 +1,6 @@
 var data_string="";
+var doc;
+
 
 window.onload = function() {
 		var fileInput = document.getElementById('fileInput');
@@ -13,9 +15,8 @@ window.onload = function() {
 				var reader = new FileReader();
 
 				reader.onload = function(e) {
-					var doc=reader.result.split('\n');
- 					init(doc);
- 					run_file(doc,0,doc.length);
+					 doc=reader.result.split('\n');
+ 					
 				}
 
 				reader.readAsText(file);	

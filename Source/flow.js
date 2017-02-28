@@ -1,3 +1,12 @@
+
+function process()
+{
+	//method that is called by pushing the run button
+	init(doc); 
+	run_file(doc,0,doc.length);
+	
+}
+
 function run_file(doc,start, end)
 {
 	//this function gets the array representing the file and iterated through the lines
