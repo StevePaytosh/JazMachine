@@ -11,8 +11,7 @@ body{
 	text-align:left;
 	padding:10px 0px 10px 10%;
 	box-shadow:10px 10px lightgray;
-	/*border-style:solid;
-	border-color:black;*/
+
 }
 
 #out:empty{
@@ -37,6 +36,11 @@ button{
 	margin-left:15px !important;
 }
 
+button:hover, input:hover
+{
+	border-color:blue !important;
+}
+
 #title{
 	margin: 10px 0px 0px 0px;
 	text-align:center;
@@ -57,4 +61,12 @@ input
 	background-color:white;
 	color:black;
 	margin-left:15px !important;
+}
+
+#downloadlink
+{
+	margin-left:15px !important;
+	font-size:10pt !important;
+	color: white;
+	width: 200px;
 }
