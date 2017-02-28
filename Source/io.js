@@ -60,7 +60,7 @@ function createDownloadLink()
 	var textbox=$("#out").html();
 	
 	var link = document.getElementById('downloadlink');
-    link.href = makeTextFile(textbox);
+    link.href = makeTextFile(data_string);
     link.style.display = 'block';
 }
 
