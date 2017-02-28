@@ -6,6 +6,7 @@ body{
 {
 	margin: 0px 0px 100px 20vw;
 	background-color:white;
+	color:black;
 	width: 50vw;
 	text-align:left;
 	padding:10px 0px 10px 10%;
@@ -36,7 +37,7 @@ button{
 }
 
 #title{
-	--margin-left:35vw;
+	margin: 10px 0px 0px 0px;
 	text-align:center;
 	font-size:25pt;
 	color: white;
